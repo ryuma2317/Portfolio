@@ -4,7 +4,7 @@ export const projects = [
     id: 'vr', category: 'Virtual reality', title: 'Jakkho', short: 'VR',
     summary: 'Practice spotting phishing messages, unsafe Wi-Fi and fake links in VR.',
     stack: 'Unity / C# / OpenXR', repo: 'https://github.com/ryuma2317/Jakkho',
-    media: { type: 'pending', label: 'Jakkho', caption: 'VR project · Preview to be added' },
+    media: { type: 'video', src: '/assets/projects/jakkho-demo.mp4', poster: '/assets/projects/jakkho-poster.jpg', mime: 'video/mp4', caption: 'Recorded VR demo · 49 seconds' },
     details: [
       ['Cybersecurity scenarios', 'A Unity VR learning project with interactive scenarios covering spear-phishing, evil-twin Wi-Fi networks and suspicious links.'],
       ['Interaction and feedback', 'Uses XR Interaction Toolkit and OpenXR, with scenario navigation, branching choices and outcome-based feedback.'],
