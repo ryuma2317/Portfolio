@@ -1,0 +1,14 @@
+Demonic phoenix flight model
+
+Base bird skeleton, mesh and Flap/Glide/Idle/Walk animations:
+Source: afk.ai, https://afk.ai/auto-rig/bird
+Direct sample: https://afk.ai/rig/animations/bird-animations.glb
+Downloaded 2026-10-26. The publisher states the sample is CC0.
+License: CC0 1.0 Universal https://creativecommons.org/publicdomain/zero/1.0/
+No attribution required. Voluntary credit: Bird rig by afk.ai.
+
+Portfolio adaptation: original curved, closed 3D feather geometry, six skinned
+tail plumes, crest/ruff/brow/eye geometry and obsidian/crimson materials.
+Feather detail samples the portfolio's demonic-phoenix.png reference artwork;
+the source PNG and source AFK model were not modified.
+Adaptation generated natively in Blender by .preview/build-phoenix-rig.py.

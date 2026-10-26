@@ -1,0 +1,80 @@
+/* A realm handoff: scenery crosses first, the exhibit lands, then the character.
+   These stages are driven by native scroll position, never timed scroll locks. */
+html.chapter-handoff-ready .work-section .project .project-media {
+  opacity:1;
+  transform:none;
+  transition:none;
+}
+.chapter-handoff-light { display:none; position:absolute; inset:0; overflow:hidden; pointer-events:none; }
+.realm-handoff-screen { display:none; position:fixed; z-index:20; inset:var(--header-height,96px) 0 0; overflow:hidden; pointer-events:none; --handoff-color:155 222 202; --handoff-warm:232 204 141; contain:strict; }
+.has-chapter-handoffs .realm-handoff-screen { display:block; }
+.realm-handoff-screen[data-realm=demonic] { --handoff-color:220 105 88; --handoff-warm:247 171 128; }
+.realm-handoff-screen i { display:block; position:absolute; left:-40%; width:180%; top:50%; pointer-events:none; transform:translate3d(var(--realm-pass-x,0%),var(--realm-pass-y,0px),0) rotate(var(--realm-pass-angle,-16deg)); }
+.realm-veil { height:230px; margin-top:-115px; background:linear-gradient(transparent 2%,#08171c00 13%,#08171c88 44%,#0b1118b3 56%,#0b151b22 78%,transparent); opacity:calc(var(--realm-pass-opacity,0) * .55); filter:blur(8px); }
+.realm-bloom { height:110px; margin-top:-55px; background:radial-gradient(ellipse at center,rgb(var(--handoff-color) / .6),rgb(var(--handoff-color) / .1) 40%,transparent 68%); opacity:calc(var(--realm-pass-opacity,0) * .6); filter:blur(13px); }
+.realm-cut { height:20px; margin-top:-10px; background:radial-gradient(ellipse at center,rgb(var(--handoff-warm) / .95) 0%,rgb(var(--handoff-color) / .65) 7%,rgb(var(--handoff-color) / .15) 25%,transparent 64%); opacity:calc(var(--realm-pass-opacity,0) * .85); filter:blur(2px); }
+.media-view-open .realm-handoff-screen { display:none; }
+.has-chapter-handoffs .chapter-handoff-light { display:block; }
+.chapter-handoff-light i { position:absolute; display:block; pointer-events:none; }
+.project { --handoff-color:155 222 202; --handoff-warm:232 204 141; }
+.project[data-realm=demonic] { --handoff-color:214 101 87; --handoff-warm:242 172 123; }
+.handoff-mantle {
+  left:-15%; top:-70px; width:130%; height:min(80vh,640px);
+  background:radial-gradient(ellipse at 32% 28%,rgb(var(--handoff-color) / .22),transparent 52%),linear-gradient(110deg,transparent 12%,#07161999 43%,transparent 72%);
+  filter:blur(15px);
+  opacity:var(--handoff-light,0);
+  transform:translate3d(var(--handoff-mantle-x,0%),0,0);
+  mask-image:linear-gradient(#000,#000 25%,transparent 90%);
+}
+.handoff-current {
+  top:10%; left:-30%; width:160%; height:240px;
+  background:radial-gradient(ellipse at 50% 50%,rgb(var(--handoff-color) / .4),transparent 59%);
+  filter:blur(17px);
+  opacity:var(--handoff-light,0);
+  transform:translate3d(var(--handoff-current-x,0%),var(--handoff-current-y,0px),0) rotate(-16deg) scaleY(.48);
+}
+html.has-chapter-handoffs .project[data-chapter-active] .project-media {
+  opacity:var(--handoff-media-opacity,1);
+  transform:perspective(1400px) translate3d(var(--handoff-media-x,0px),var(--handoff-media-y,0px),0) rotateY(var(--handoff-media-turn,0deg)) scale(var(--handoff-media-scale,1));
+  transform-origin:50% 65%;
+}
+.has-chapter-handoffs .project[data-chapter-active] .project-copy {
+  opacity:var(--handoff-copy-opacity,1);
+  transform:translate3d(var(--handoff-copy-x,0px),var(--handoff-copy-y,0px),0);
+}
+.has-chapter-handoffs .project[data-chapter-active] .guardian-stage {
+  opacity:var(--handoff-guardian-opacity,1);
+  transform:translate3d(0,var(--handoff-guardian-y,0px),0) scale(var(--handoff-guardian-scale,1));
+  transform-origin:50% 100%;
+}
+.has-chapter-handoffs .project[data-chapter-active] .guardian-controls {
+  transform:translate3d(0,var(--handoff-guardian-y,0px),0);
+  opacity:var(--handoff-guardian-opacity,1);
+}
+.has-chapter-handoffs .project[data-chapter-active] .media-frame::after {
+  content:'';
+  position:absolute; z-index:7; inset:-25% -10%; pointer-events:none;
+  background:linear-gradient(105deg,transparent 31%,rgb(var(--handoff-color) / .05) 40%,rgb(var(--handoff-warm) / .42) 49%,rgb(var(--handoff-color) / .12) 53%,transparent 64%);
+  opacity:var(--handoff-sheen,0);
+  transform:translate3d(var(--handoff-sheen-x,0%),0,0);
+  mix-blend-mode:screen;
+}
+/* The module replaces the earlier autonomous separator loops with one
+   continuous scroll pass, so adjoining chapters do not replay identical loops. */
+.chapter-handoff-ready .chapter-transition .transition-glint { animation:none; opacity:.35; left:10%; width:80%; transform:rotate(-2deg); }
+.chapter-handoff-ready .chapter-transition .transition-mist { animation:none; }
+html[data-magic=off] .chapter-handoff-light { display:none; }
+html[data-magic=off] .realm-handoff-screen { display:none; }
+html[data-magic=off].chapter-handoff-ready .chapter-transition .transition-glint { opacity:.1; }
+@media(max-width:759px) {
+  .handoff-current { height:170px; top:15%; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .chapter-handoff-light { display:none!important; }
+  .realm-handoff-screen { display:none!important; }
+  html.chapter-handoff-ready .project .project-media,
+  .has-chapter-handoffs .project[data-chapter-active] .project-copy,
+  .has-chapter-handoffs .project[data-chapter-active] .guardian-stage,
+  .has-chapter-handoffs .project[data-chapter-active] .guardian-controls { transform:none!important; opacity:1!important; }
+  .has-chapter-handoffs .project[data-chapter-active] .media-frame::after { display:none; }
+}

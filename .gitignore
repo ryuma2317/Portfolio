@@ -1,0 +1,35 @@
+# Dependencies and generated output
+node_modules/
+dist/
+coverage/
+*.log
+
+# Local environment files (the portfolio currently needs no secrets)
+.env
+.env.*
+!.env.example
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Private review tools, drafts and screenshots
+.preview/
+.video-review-tools/
+__pycache__/
+*.pyc
+
+# Local portfolio brief and video inspection artifact
+/AGENTS.md
+/PORTFOLIO_PROPOSAL.local.md
+/clip-contact-sheet.jpg
+
+# Original working references. Publishable website assets live in public/.
+/arena.png
+/avatar.png
+/demon.png
+/god.png
+/gemini_generated_video_3e4b6464.mp4

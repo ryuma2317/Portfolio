@@ -1,0 +1,26 @@
+/* Each chapter pairs a media exhibit with its own character and technique stage. */
+.project[data-realm=divine] { background:radial-gradient(ellipse at 85% 65%,#507c6b2e,transparent 58%),linear-gradient(110deg,#223d42,#23454a 48%,#2c4142); }
+.project[data-realm=demonic] { background:radial-gradient(ellipse at 16% 65%,#8e493d38,transparent 58%),linear-gradient(110deg,#352a31,#33282f 55%,#29313a); }
+.scene-scenery { position:absolute; inset:0; z-index:0; pointer-events:none; overflow:hidden; }
+.scene-mist { position:absolute; inset:0; background:radial-gradient(ellipse at 50% 100%,#8fb6a811,transparent 67%); }
+.project[data-realm=demonic] .project-index { color:#dba28c; }
+.project[data-realm=demonic] .project-status { color:#b69e96; }
+.project[data-realm=demonic] .project-description { color:#d9c4bc; }
+.project[data-realm=demonic] .scene-invoke { color:#e5b3a1; }
+.project[data-realm=demonic] .media-frame { background:linear-gradient(135deg,#ba80602b,#29252dc9 32%,#2a252cda 70%,#b878593b); border-color:#b7856866; box-shadow:0 20px 45px -24px #1a0a15c9,inset 0 0 0 3px #292329,inset 0 0 0 4px #b77c612b; }
+.project[data-realm=demonic] .media-chrome { color:#bea89c; }
+.project[data-realm=demonic] .media-chrome>span:last-child { color:#c6a587; }
+.project[data-realm=demonic] .media-caption { color:#b6a394; }
+.project[data-realm=demonic] .media-pending { background:radial-gradient(ellipse at 50% 45%,#885b482c,transparent 70%),#29262d; }
+.project[data-realm=demonic] .pending-language { color:#ca9c8555; }
+.project[data-realm=demonic] .media-pending p { color:#c1ada0; }
+.project[data-realm=demonic] .pending-status { color:#a18e82; }
+.divine-guardian,.demonic-guardian { opacity:1; mix-blend-mode:normal; mask-image:none; }
+.chapter-transition[data-from-realm=divine] { background:linear-gradient(#2a4243,#30363a 50%,#342b32); }
+.chapter-transition[data-from-realm=demonic] { background:linear-gradient(#2d3037,#2a393e 50%,#223d42); }
+.opening-transition { height:85px; background:linear-gradient(#080b0c,#172b31 65%,#1b3036); }
+.closing-transition { background:linear-gradient(#2c4142,#243a3d,#1b2e34); }
+.about-portrait img { mask-image:linear-gradient(90deg,transparent,#000 20%,#000 80%,transparent),linear-gradient(transparent,#000 9%,#000 78%,transparent); mask-composite:intersect; mix-blend-mode:lighten; }
+.closing-world { background:radial-gradient(ellipse at 16% 45%,#4c655c38,transparent 57%),radial-gradient(ellipse at 80% 80%,#76424125,transparent 63%),#1b2e34; }
+.contact-section .section-shell { position:relative; }
+.contact-section .section-shell::before { content:''; position:absolute; top:-15px; left:var(--page-gutter); right:var(--page-gutter); height:1px; background:linear-gradient(90deg,#a3ab8666,#6a8c8266); }
